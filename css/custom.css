@@ -1,0 +1,342 @@
+/* custom.css - Customizations for Windows 95 portfolio */
+
+/* 4:3 Aspect Ratio Container */
+#win95-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    overflow: hidden;
+}
+
+#win95-app {
+    aspect-ratio: 4/3;
+    height: auto;
+    max-height: 100vh;
+    max-width: calc(100vh * 4/3);
+    position: relative;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+    /* Stronger CRT effect */
+    position: relative;
+}
+
+/* Enhanced CRT screen effect */
+#win95-app::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 1px, transparent 1px, transparent 2px);
+    pointer-events: none;
+    opacity: 0.15;
+    z-index: 9999;
+}
+
+/* Larger desktop icons with emoji support */
+.desktop-icon {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+}
+
+.icon-emoji {
+    font-size: 38px;
+    height: 48px;
+    width: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 6px;
+}
+
+.desktop-icon span {
+    font-size: 13px;
+    max-width: 90px;
+}
+
+/* Adjust desktop grid for larger icons */
+#desktop {
+    grid-template-columns: repeat(auto-fill, 100px);
+    grid-template-rows: repeat(auto-fill, 100px);
+    gap: 15px;
+    padding: 15px;
+}
+
+/* Start button emoji */
+.start-emoji {
+    font-size: 18px;
+    margin-right: 6px;
+}
+
+#start-button {
+    padding: 0 10px;
+}
+
+/* Start menu emojis */
+.win-logo-large {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.start-item .start-emoji {
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+    margin-right: 8px;
+}
+
+/* Taskbar item emojis */
+.taskbar-item .item-emoji {
+    font-size: 16px;
+    margin-right: 6px;
+}
+
+/* More pixelated rendering for emojis */
+.icon-emoji, .start-emoji, .win-logo-large, .item-emoji {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+/* Better active window indication */
+.window.active .window-header {
+    background-color: #000080;
+}
+
+.window:not(.active) .window-header {
+    background-color: #808080;
+}
+
+/* Enhanced scan lines effect */
+@media (min-width: 768px) {
+    #win95-app::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.03) 0%,
+            rgba(255, 255, 255, 0.03) 50%,
+            rgba(0, 0, 0, 0.03) 50%,
+            rgba(0, 0, 0, 0.03) 100%
+        );
+        background-size: 100% 4px;
+        pointer-events: none;
+        z-index: 9997;
+        opacity: 0.4;
+    }
+}
+
+/* Window modifications for 4:3 aspect ratio */
+.window {
+    border-width: 3px;
+}
+
+.window-header {
+    height: 22px;
+}
+
+/* Make windows more pixelated */
+.window, .taskbar, #start-menu {
+    image-rendering: pixelated;
+}
+
+/* Make sure taskbar is fixed at bottom */
+#taskbar {
+    bottom: 0;
+    height: 36px;
+}
+
+/* Stronger button borders */
+button {
+    border-width: 3px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    #win95-container {
+        align-items: flex-start;
+    }
+    
+    #win95-app {
+        width: 100%;
+        height: auto;
+        max-height: none;
+    }
+}
+/* Add these styles to your custom.css file */
+
+/* Explorer emoji icons */
+.explorer-emoji {
+    font-size: 32px;
+    height: 36px;
+    width: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 6px;
+}
+
+/* Sidebar emoji icons */
+.sidebar-emoji {
+    font-size: 16px;
+    margin-right: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+}
+
+/* Toolbar emoji icons */
+.toolbar-emoji {
+    font-size: 14px;
+    margin-right: 4px;
+    display: inline-flex;
+}
+
+/* Control panel emoji icons */
+.control-panel-emoji {
+    font-size: 32px;
+    height: 36px;
+    width: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 6px;
+}
+
+/* Search emoji */
+.search-emoji {
+    font-size: 14px;
+    margin-right: 4px;
+}
+
+.large-emoji {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+/* Explorer item styling */
+.explorer-item {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.explorer-item span {
+    text-align: center;
+    font-size: 11px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.explorer-item:hover {
+    background-color: rgba(0, 0, 255, 0.1);
+}
+
+.explorer-item.selected {
+    background-color: rgba(0, 0, 255, 0.2);
+}
+
+/* Enhanced folder tree */
+.folder-tree div {
+    padding: 3px 0;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.folder-tree div:hover {
+    background-color: rgba(0, 0, 255, 0.1);
+}
+
+/* For file items in explorer with specific types */
+.explorer-item[data-type="Nostalgia"] .explorer-emoji {
+    /* Can add specific styling for different file types */
+}
+
+/* Make the explorer view more authentic to Windows 95 */
+.explorer-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.explorer-toolbar {
+    height: 32px;
+    background-color: var(--win95-grey);
+    border-bottom: 1px solid var(--win95-dark-grey);
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.explorer-toolbar button {
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    padding: 2px 6px;
+}
+
+/* Improve the look of the address bar */
+.explorer-address-bar {
+    height: 28px;
+    padding: 0 5px;
+    display: flex;
+    align-items: center;
+    background-color: var(--win95-grey);
+    border-bottom: 1px solid var(--win95-dark-grey);
+}
+
+.explorer-address {
+    flex: 1;
+    margin-left: 5px;
+    border: inset 2px;
+    background-color: var(--win95-white);
+    padding: 2px 5px;
+    height: 18px;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+}
+
+/* Make the view area better */
+.explorer-view {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+.explorer-sidebar {
+    width: 25%;
+    background-color: var(--win95-grey);
+    border-right: 1px solid var(--win95-dark-grey);
+    padding: 5px;
+    overflow: auto;
+}
+
+.explorer-main {
+    flex: 1;
+    background-color: var(--win95-white);
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 10px;
+    overflow: auto;
+}

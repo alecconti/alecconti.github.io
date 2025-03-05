@@ -1,0 +1,396 @@
+/* win95.css - Base styling for Windows 95 theme */
+
+/* Import MS Sans Serif font */
+@font-face {
+  font-family: 'MS Sans Serif';
+  src: url('../fonts/w95fa.woff2') format('woff2'),
+       url('../fonts/w95fa.woff') format('woff'),
+       url('../fonts/W95FA') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+  
+  :root {
+    /* Windows 95 color palette */
+    --win95-grey: #c0c0c0;
+    --win95-light-grey: #dfdfdf;
+    --win95-dark-grey: #808080;
+    --win95-darker-grey: #404040;
+    --win95-black: #000000;
+    --win95-white: #ffffff;
+    --win95-blue: #000080;
+    --win95-light-blue: #1084d0;
+    --win95-teal: #008080;
+    --win95-green: #008000;
+    --win95-turquoise: #00ffff;
+    
+    /* Windows 95 sizes */
+    --taskbar-height: 28px;
+    --icon-size: 32px;
+    --window-border: 2px;
+    --window-header-height: 18px;
+    --menu-bar-height: 20px;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    font-family: 'MS Sans Serif', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 11px;
+    font-smooth: never;
+    -webkit-font-smoothing: none;
+  }
+  
+  body, html {
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #win95-app {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-color: #008080; /* Default Windows 95 teal background */
+    background-image: url('../img/wallpapers/clouds.jpg');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    cursor: default;
+  }
+  
+  /* Pixelated rendering for images */
+  img {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+  
+  /* Standard Windows 95 button styling */
+  button {
+    background-color: var(--win95-grey);
+    border: var(--window-border) solid;
+    border-color: var(--win95-white) var(--win95-dark-grey) var(--win95-dark-grey) var(--win95-white);
+    padding: 2px 6px;
+    color: var(--win95-black);
+    font-family: 'MS Sans Serif', sans-serif;
+    outline: none;
+    font-size: 11px;
+    text-align: center;
+    line-height: 1;
+    position: relative;
+  }
+  
+  button:active {
+    border-color: var(--win95-dark-grey) var(--win95-white) var(--win95-white) var(--win95-dark-grey);
+  }
+  
+  button:focus {
+    outline: 1px dotted var(--win95-dark-grey);
+    outline-offset: -4px;
+  }
+  
+  /* For inset areas like text inputs */
+  .inset {
+    border: 2px solid;
+    border-color: var(--win95-dark-grey) var(--win95-white) var(--win95-white) var(--win95-dark-grey);
+    background-color: var(--win95-white);
+  }
+  
+  /* Desktop layout */
+  #desktop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: var(--taskbar-height);
+    padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 80px);
+    grid-template-rows: repeat(auto-fill, 80px);
+    gap: 10px;
+    align-content: start;
+    overflow: hidden;
+  }
+  
+  /* Desktop icons */
+  .desktop-icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .desktop-icon img {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    margin-bottom: 5px;
+  }
+  
+  .desktop-icon span {
+    color: white;
+    text-align: center;
+    text-shadow: 1px 1px 1px black;
+    font-size: 11px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    white-space: nowrap;
+  }
+  
+  .desktop-icon:hover {
+    background-color: rgba(0, 0, 255, 0.2);
+  }
+  
+  .desktop-icon.selected {
+    background-color: rgba(0, 0, 255, 0.3);
+  }
+  
+  .desktop-icon.selected span {
+    background-color: var(--win95-blue);
+  }
+  
+  /* Taskbar */
+  #taskbar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: var(--taskbar-height);
+    background-color: var(--win95-grey);
+    border-top: 2px solid var(--win95-white);
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    z-index: 9000;
+  }
+  
+  /* Start button */
+  #start-button {
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+    height: 22px;
+    margin-right: 5px;
+    font-weight: bold;
+  }
+  
+  #start-button img {
+    height: 16px;
+    width: 16px;
+    margin-right: 5px;
+  }
+  
+  /* Active windows area in taskbar */
+  #active-windows {
+    flex: 1;
+    display: flex;
+    height: 100%;
+  }
+  
+  .taskbar-item {
+    display: flex;
+    align-items: center;
+    padding: 3px 5px;
+    margin-right: 3px;
+    min-width: 120px;
+    max-width: 200px;
+    background-color: var(--win95-grey);
+    border: var(--window-border) solid;
+    border-color: var(--win95-white) var(--win95-dark-grey) var(--win95-dark-grey) var(--win95-white);
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .taskbar-item.active {
+    border-color: var(--win95-dark-grey) var(--win95-white) var(--win95-white) var(--win95-dark-grey);
+    background-color: var(--win95-light-grey);
+  }
+  
+  .taskbar-item img {
+    height: 16px;
+    width: 16px;
+    margin-right: 4px;
+  }
+  
+  /* System tray */
+  #system-tray {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border-left: 1px solid var(--win95-dark-grey);
+    margin-left: 5px;
+    padding-left: 5px;
+  }
+  
+  #clock {
+    margin: 0 5px;
+    font-size: 10px;
+  }
+  
+  /* Start menu */
+  #start-menu {
+    position: absolute;
+    bottom: var(--taskbar-height);
+    left: 0;
+    width: 200px;
+    background-color: var(--win95-grey);
+    border: var(--window-border) solid;
+    border-color: var(--win95-white) var(--win95-dark-grey) var(--win95-dark-grey) var(--win95-white);
+    z-index: 9999;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  #start-header {
+    width: 100%;
+    height: 35px;
+    background-color: var(--win95-blue);
+    display: flex;
+    align-items: center;
+  }
+  
+  #start-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 10px;
+    color: var(--win95-white);
+    font-weight: bold;
+    font-size: 16px;
+    transform: rotate(-90deg);
+    transform-origin: 20px 20px;
+    width: 35px;
+  }
+  
+  #start-banner img {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 5px;
+  }
+  
+  #start-menu-items {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 0;
+  }
+  
+  .start-item {
+    display: flex;
+    align-items: center;
+    padding: 4px 10px;
+    cursor: pointer;
+  }
+  
+  .start-item img {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+  }
+  
+  .start-item:hover {
+    background-color: var(--win95-blue);
+    color: var(--win95-white);
+  }
+  
+  .separator {
+    height: 1px;
+    background-color: var(--win95-dark-grey);
+    margin: 3px 0;
+    border-bottom: 1px solid var(--win95-white);
+  }
+  
+  /* Context menu */
+  #context-menu {
+    position: absolute;
+    width: 150px;
+    background-color: var(--win95-grey);
+    border: var(--window-border) solid;
+    border-color: var(--win95-white) var(--win95-dark-grey) var(--win95-dark-grey) var(--win95-white);
+    z-index: 10000;
+    padding: 2px 0;
+  }
+  
+  .context-item {
+    padding: 3px 20px;
+    cursor: pointer;
+  }
+  
+  .context-item:hover {
+    background-color: var(--win95-blue);
+    color: var(--win95-white);
+  }
+  
+  /* Blue Screen of Death */
+  #bsod {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--win95-blue);
+    color: var(--win95-white);
+    padding: 10% 15%;
+    z-index: 99999;
+    font-family: 'Courier New', monospace;
+  }
+  
+  #bsod h1 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  
+  #bsod p {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+  
+  #bsod-cursor {
+    animation: blink 1s infinite;
+  }
+  
+  /* Utility classes */
+  .hidden {
+    display: none !important;
+  }
+  
+  /* Animations */
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  
+  /* CRT screen effect */
+  #win95-app::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 2px);
+    pointer-events: none;
+    opacity: 0.1;
+    z-index: 9999;
+  }
+  
+  /* Screen glare effect */
+  #win95-app::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0.1) 100%);
+    pointer-events: none;
+    z-index: 9998;
+  }
