@@ -1,0 +1,483 @@
+/* windows.css - Styling for Windows 95 window system */
+
+/* Window container */
+.window {
+    position: absolute;
+    min-width: 200px;
+    min-height: 100px;
+    background-color: var(--win95-grey);
+    border: var(--window-border) solid;
+    border-color: var(--win95-white) var(--win95-dark-grey) var(--win95-dark-grey) var(--win95-white);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    resize: both;
+    overflow: hidden;
+  }
+  
+  .window.active {
+    z-index: 1000;
+  }
+  
+  .window.maximized {
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: calc(100vh - var(--taskbar-height)) !important;
+    border-width: 0 !important;
+  }
+  
+  .window.minimized {
+    display: none;
+  }
+  
+  /* Window header */
+  .window-header {
+    height: var(--window-header-height);
+    background-color: var(--win95-blue);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 3px 2px 5px;
+    cursor: default;
+  }
+  
+  .window.active .window-header {
+    background-color: var(--win95-blue);
+    color: var(--win95-white);
+  }
+  
+  .window:not(.active) .window-header {
+    background-color: var(--win95-grey);
+    color: var(--win95-dark-grey);
+  }
+  
+  .window-title {
+    font-weight: bold;
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 5px;
+  }
+  
+  .window.active .window-title {
+    color: white;
+  }
+  
+  .window-controls {
+    display: flex;
+    gap: 2px;
+  }
+  
+  .window-controls button {
+    width: 14px;
+    height: 14px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    line-height: 1;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Window menu bar */
+  .window-menu-bar {
+    height: var(--menu-bar-height);
+    background-color: var(--win95-grey);
+    border-bottom: 1px solid var(--win95-dark-grey);
+    display: flex;
+    align-items: center;
+  }
+  
+  .window-menu-bar ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  .window-menu-bar li {
+    padding: 2px 8px;
+    cursor: pointer;
+  }
+  
+  .window-menu-bar li:hover {
+    background-color: var(--win95-blue);
+    color: var(--win95-white);
+  }
+  
+  /* Window content */
+  .window-content {
+    flex: 1;
+    background-color: var(--win95-white);
+    overflow: auto;
+    position: relative;
+    border: 1px solid var(--win95-darker-grey);
+    border-width: 1px 0 0 1px;
+  }
+  
+  /* Resizers */
+  .window-resizer {
+    position: absolute;
+  }
+  
+  .window-resizer-n {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    cursor: n-resize;
+  }
+  
+  .window-resizer-e {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 3px;
+    cursor: e-resize;
+  }
+  
+  .window-resizer-s {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    cursor: s-resize;
+  }
+  
+  .window-resizer-w {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 3px;
+    cursor: w-resize;
+  }
+  
+  .window-resizer-ne {
+    top: 0;
+    right: 0;
+    width: 5px;
+    height: 5px;
+    cursor: ne-resize;
+  }
+  
+  .window-resizer-se {
+    bottom: 0;
+    right: 0;
+    width: 5px;
+    height: 5px;
+    cursor: se-resize;
+  }
+  
+  .window-resizer-sw {
+    bottom: 0;
+    left: 0;
+    width: 5px;
+    height: 5px;
+    cursor: sw-resize;
+  }
+  
+  .window-resizer-nw {
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 5px;
+    cursor: nw-resize;
+  }
+  
+  /* Special window types */
+  
+  /* Notepad window */
+  .notepad-content {
+    font-family: 'Courier New', monospace;
+    background-color: white;
+    padding: 5px;
+  }
+  
+  .notepad-text {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+  }
+  
+  .notepad-text p {
+    margin-bottom: 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+  }
+  
+  /* File explorer window */
+  .explorer-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .explorer-toolbar {
+    height: 30px;
+    background-color: var(--win95-grey);
+    border-bottom: 1px solid var(--win95-dark-grey);
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+  }
+  
+  .explorer-toolbar button {
+    margin-right: 5px;
+  }
+  
+  .explorer-address-bar {
+    display: flex;
+    align-items: center;
+    background-color: var(--win95-grey);
+    height: 25px;
+    padding: 0 5px;
+    border-bottom: 1px solid var(--win95-dark-grey);
+  }
+  
+  .explorer-address-bar span {
+    margin-right: 5px;
+  }
+  
+  .explorer-address {
+    flex: 1;
+    height: 18px;
+    border: 1px solid var(--win95-dark-grey);
+    background-color: var(--win95-white);
+    padding: 2px 5px;
+  }
+  
+  .explorer-view {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+  }
+  
+  .explorer-sidebar {
+    width: 25%;
+    background-color: var(--win95-grey);
+    border-right: 1px solid var(--win95-dark-grey);
+    padding: 5px;
+    overflow: auto;
+  }
+  
+  .explorer-main {
+    flex: 1;
+    background-color: var(--win95-white);
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 10px;
+    overflow: auto;
+  }
+  
+  .explorer-item {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .explorer-item img {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 5px;
+  }
+  
+  .explorer-item span {
+    text-align: center;
+    font-size: 11px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .explorer-item:hover {
+    background-color: rgba(0, 0, 255, 0.1);
+  }
+  
+  .explorer-item.selected {
+    background-color: rgba(0, 0, 255, 0.2);
+  }
+  
+  /* Image viewer window */
+  .image-viewer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--win95-grey);
+    height: 100%;
+    overflow: auto;
+  }
+  
+  .image-viewer-content img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  
+  /* Web search window */
+  .search-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .search-bar {
+    height: 40px;
+    background-color: var(--win95-grey);
+    border-bottom: 1px solid var(--win95-dark-grey);
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    gap: 5px;
+  }
+  
+  .search-input {
+    flex: 1;
+    height: 22px;
+    border: 1px solid var(--win95-dark-grey);
+    background-color: var(--win95-white);
+    padding: 2px 5px;
+  }
+  
+  .search-results {
+    flex: 1;
+    background-color: var(--win95-white);
+    padding: 10px;
+    overflow: auto;
+  }
+  
+  /* Control panel window */
+  .control-panel-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-gap: 15px;
+    padding: 15px;
+    overflow: auto;
+  }
+  
+  .control-panel-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .control-panel-item img {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 5px;
+  }
+  
+  .control-panel-item:hover {
+    background-color: rgba(0, 0, 255, 0.1);
+  }
+  
+  /* Minesweeper window */
+  .minesweeper-content {
+    background-color: var(--win95-grey);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .minesweeper-controls {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--win95-grey);
+    border: var(--window-border) solid;
+    border-color: var(--win95-dark-grey) var(--win95-white) var(--win95-white) var(--win95-dark-grey);
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+  
+  .minesweeper-counter {
+    background-color: black;
+    color: red;
+    font-family: 'Digital', monospace;
+    font-size: 20px;
+    padding: 0 5px;
+    font-weight: bold;
+  }
+  
+  .minesweeper-face {
+    width: 26px;
+    height: 26px;
+    background-color: var(--win95-grey);
+    border: var(--window-border) solid;
+    border-color: var(--win95-white) var(--win95-dark-grey) var(--win95-dark-grey) var(--win95-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .minesweeper-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 16px);
+    grid-template-rows: repeat(9, 16px);
+    gap: 0;
+    border: var(--window-border) solid;
+    border-color: var(--win95-dark-grey) var(--win95-white) var(--win95-white) var(--win95-dark-grey);
+  }
+  
+  .minesweeper-cell {
+    width: 16px;
+    height: 16px;
+    background-color: var(--win95-grey);
+    border: 1px solid;
+    border-color: var(--win95-white) var(--win95-dark-grey) var(--win95-dark-grey) var(--win95-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .minesweeper-cell.revealed {
+    border: 1px solid var(--win95-dark-grey);
+    border-width: 1px 1px 1px 1px;
+    background-color: var(--win95-grey);
+  }
+  
+  .minesweeper-cell[data-value="1"] { color: blue; }
+  .minesweeper-cell[data-value="2"] { color: green; }
+  .minesweeper-cell[data-value="3"] { color: red; }
+  .minesweeper-cell[data-value="4"] { color: darkblue; }
+  .minesweeper-cell[data-value="5"] { color: darkred; }
+  .minesweeper-cell[data-value="6"] { color: teal; }
+  .minesweeper-cell[data-value="7"] { color: black; }
+  .minesweeper-cell[data-value="8"] { color: grey; }
+  
+  .minesweeper-cell.flagged {
+    background-image: url('../img/icons/flag.png');
+    background-size: 10px 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .minesweeper-cell.mine {
+    background-image: url('../img/icons/mine.png');
+    background-size: 10px 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }

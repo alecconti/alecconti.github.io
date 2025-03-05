@@ -1,312 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="keywords" content="">
-	<meta name="description" content="">
-	<!-- SITE TITLE -->
-	<title>Alec Conti | Developer</title>
-
-	<!-- STYLESHEETS -->
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/templatemo-style.css">
-	<link href='//fonts.googleapis.com/css?family=Raleway:400,300,600,700' rel='stylesheet' type='text/css'>
-<!-- 
-
-Ultra Profile
-
-https://templatemo.com/tm-464-ultra-profile
-
--->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alec Conti - Windows 95 Portfolio</title>
+    <link rel="stylesheet" href="css/win95.css">
+    <link rel="stylesheet" href="css/windows.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="icon" href="img/icons/computer.ico" type="image/x-icon">
+    <meta name="description" content="J. Alec Conti's Windows 95-themed personal portfolio website showcasing projects, internships, and more.">
 </head>
-<body data-spy="scroll" data-target="#rock-navigation">
-	<!-- START NAVIGATION -->
-	<div class="navbar navbar-default bs-dos-nav navbar-fixed-top sticky-navigation" role="navigation">
-		<div class="container">
+<body>
+    <div id="win95-container">
+        <div id="win95-app">
+            <!-- Desktop container -->
+            <div id="desktop">
+                <!-- Desktop icons with emojis -->
+                <div class="desktop-icon" data-window="internships">
+                    <div class="icon-emoji">💼</div>
+                    <span>Internships</span>
+                </div>
+                <div class="desktop-icon" data-window="projects">
+                    <div class="icon-emoji">🚀</div>
+                    <span>Projects</span>
+                </div>
+                <div class="desktop-icon" data-window="photos">
+                    <div class="icon-emoji">📸</div>
+                    <span>Photos</span>
+                </div>
+                <div class="desktop-icon" data-window="search">
+                    <div class="icon-emoji">🌎</div>
+                    <span>Web Search</span>
+                </div>
+                <div class="desktop-icon" data-window="control-panel">
+                    <div class="icon-emoji">🛠️</div>
+                    <span>Control Panel</span>
+                </div>
+                <div class="desktop-icon" data-window="about-me">
+                    <div class="icon-emoji">📝</div>
+                    <span>About Me</span>
+                </div>
+                <div class="desktop-icon" data-window="resume">
+                    <div class="icon-emoji">📄</div>
+                    <span>Resume</span>
+                </div>
+                <div class="desktop-icon" data-window="minesweeper">
+                    <div class="icon-emoji">💣</div>
+                    <span>Minesweeper</span>
+                </div>
+                <div class="desktop-icon" id="recycle-bin" data-window="recycle-bin">
+                    <div class="icon-emoji">🗑️</div>
+                    <span>Recycle Bin</span>
+                </div>
+            </div>
 
-			<div class="navbar-header">
-				<button class="navbar-toggle" data-toggle="collapse" data-target="#rock-navigation">
-					<span class="icon icon-bar"></span>
-					<span class="icon icon-bar"></span>
-					<span class="icon icon-bar"></span>
-				</button>
-				<a href="#" class="navbar-brand">Alec Conti</a>
-			</div>
-			<nav class="collapse navbar-collapse" id="rock-navigation">
-				<ul class="nav navbar-nav navbar-right main-navigation text-uppercase">
-					<li><a href="#home" class="smoothScroll">Home</a></li>
-					<li><a href="#work" class="smoothScroll">About me</a></li>
-					<li><a href="#portfolio" class="smoothScroll">Portfolio</a></li>
-					<li><a href="#resume" class="smoothScroll">Resume</a></li>
-					
-					<!--<li><a href="#contact" class="smoothScroll">Contact</a></li>--> 	 
-				</ul>
-			</nav>
+            <!-- Window templates - will be cloned and shown when icons are clicked -->
+            <div id="window-templates" style="display: none;">
+                <!-- About Me Window -->
+                <div id="about-me-window" class="window">
+                    <div class="window-header">
+                        <div class="window-title">About Me - Notepad</div>
+                        <div class="window-controls">
+                            <button class="minimize-button">_</button>
+                            <button class="maximize-button">□</button>
+                            <button class="close-button">✕</button>
+                        </div>
+                    </div>
+                    <div class="window-menu-bar">
+                        <ul>
+                            <li>File</li>
+                            <li>Edit</li>
+                            <li>View</li>
+                            <li>Help</li>
+                        </ul>
+                    </div>
+                    <div class="window-content notepad-content">
+                        <div class="notepad-text">
+                            <p>Hello World! I'm J. Alec Conti,</p>
+                            <p>Welcome to my Windows 95-themed portfolio website! I'm a passionate developer with interests in Data Analytics, Machine Learning, and Finance. This interactive portfolio showcases my work, experience, and projects in a nostalgic Windows 95 interface.</p>
+                            <p>Feel free to explore the desktop and open different folders to learn more about me!</p>
+                            <p>Current status: Expected to graduate in May 2025, looking for full-time opportunities in Data Analytics, ML Engineering, and Quantitative Finance.</p>
+                            <p>Location: University Park, PA</p>
+                            <p>Contact: johnalecconti@gmail.com | 412-477-1878</p>
+                            <p>Links: <a href="https://alecconti.github.io" target="_blank">alecconti.github.io</a> | <a href="https://linkedin.com/in/alecconti" target="_blank">linkedin.com/in/alecconti</a></p>
+                        </div>
+                    </div>
+                </div>
 
-		</div>
-	</div>
-	<!-- END NAVIGATION -->
+                <!-- Other windows will be defined similarly in the JavaScript code -->
+            </div>
 
-	<!-- START HOME -->
-	<section id="home" class="templatemo-home">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-2 col-sm-1"></div>
-				<div class="col-md-8 col-sm-10">
-					<h1 class="tm-home-title"><strong>Alec Conti</strong></h1>
-					<h2 class="tm-home-subtitle">Developer</h2>
-					<p>Motivated computer science student with a strong foundation in software development and a passion for <strong>math</strong>, <strong>finance</strong>, and <strong>programming</strong>. Seeking an internship opportunity in <strong>software development</strong> or surrounding industries to apply my skills and learn from industry professionals.<p></p>
-					<a href="#work" class="btn btn-default smoothScroll tm-view-more-btn">Let's Begin</a>
-				</div>
-				<div class="col-md-2 col-sm-1"></div>
-			</div>
-		</div>
-	</section>
-	<!-- END HOME -->
+            <!-- Taskbar -->
+            <div id="taskbar">
+                <button id="start-button">
+                    <div class="start-emoji">🪟</div>
+                    Start
+                </button>
+                <div id="active-windows">
+                    <!-- Active windows will be shown here -->
+                </div>
+                <div id="system-tray">
+                    <div id="clock">9:41 AM</div>
+                </div>
+            </div>
 
-	<!-- START work -->
-	<section id="work" class="tm-padding-top-bottom-100">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-offset-1 col-md-11">
-					<h2 class="title">About Me</h2>						
-				</div>
-				<div class="col-md-4 col-sm-4">
-					<div class="work-wrapper">
-						<i class="fa fa-book"></i>
-						<h3 class="text-uppercase tm-work-h3">Penn State University</h3>
-						<hr>
-						<p>At Penn State, I have already set a solid foundation of technical skills. I am excited to continue learning and exploring these areas as I pursue a career in software development, with a particular focus on using data-driven approaches to solve complex problems. In addition, I have a strong interest in forecasting, machine learning, and data science.</p>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-4">
-					<div class="work-wrapper">
-						<i class="fa fa-laptop"></i>
-						<h3 class="text-uppercase tm-work-h3">Software Experience</h3>
-						<hr>
-						<p>During my first two years at university, I have gained a solid foundation in software engineering through coursework in programming languages such as Python, Java, and C. I have completed courses in Data Structures & Algorithms, as well as object-oriented programming courses in Python and Java. In pursuit on a Mathematics minor, I have also taken courses such as Differential Equations and Probability Theory. Through these courses and self-study, I have developed strong problem-solving skills and the ability to write clean, efficient code.</p>
-					
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-4">
-					<div class="work-wrapper">
-						<i class="fa fa-users"></i>
-						<h3 class="text-uppercase tm-work-h3">Leadership Experience</h3>
-						<hr>
-						<p>One of the ways I learned to be a leader was through leading my team to victory in annual hackathon at Federated Hermes. 
-							My team was tasked with creating a solution for a relevant business case, and we chose to develope a stock sentiment analysis website for the traders. 
-							As the lead developer, I was tasked with communicating complex technical concepts with the business interns, solving technical challenges, and coordinating the software development with the other developer. 
-							My leadership, project management, and teamwork skills were honed while also gaining real-world experience. </p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- END work -->
+            <!-- Start Menu -->
+            <div id="start-menu" class="hidden">
+                <div id="start-header">
+                    <div id="start-banner">
+                        <div class="win-logo-large">🪟</div>
+                        <span>Windows 95</span>
+                    </div>
+                </div>
+                <div id="start-menu-items">
+                    <div class="start-item" data-window="about-me">
+                        <div class="start-emoji">📝</div>
+                        <span>About Me</span>
+                    </div>
+                    <div class="start-item" data-window="internships">
+                        <div class="start-emoji">💼</div>
+                        <span>Internships</span>
+                    </div>
+                    <div class="start-item" data-window="projects">
+                        <div class="start-emoji">🚀</div>
+                        <span>Projects</span>
+                    </div>
+                    <div class="start-item" data-window="resume">
+                        <div class="start-emoji">📄</div>
+                        <span>Resume</span>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="start-item" data-window="minesweeper">
+                        <div class="start-emoji">💣</div>
+                        <span>Minesweeper</span>
+                    </div>
+                    <div class="start-item" id="blue-screen-trigger">
+                        <div class="start-emoji">⚠️</div>
+                        <span>Blue Screen</span>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="start-item" id="shutdown">
+                        <div class="start-emoji">🔌</div>
+                        <span>Shut Down...</span>
+                    </div>
+                </div>
+            </div>
 
-	<!-- START PORTFOLIO -->
-	<section id="portfolio" class="tm-portfolio">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 wow bounce">
-					<div class="title">
-						<h2 class="tm-portfolio-title">My <strong>Portfolio</strong></h2>
-					</div>
+            <!-- Right-click context menu -->
+            <div id="context-menu" class="hidden">
+                <div class="context-item" id="ctx-refresh">Refresh</div>
+                <div class="context-item" id="ctx-create">New</div>
+                <div class="separator"></div>
+                <div class="context-item" id="ctx-wallpaper">Change Wallpaper</div>
+                <div class="context-item" id="ctx-properties">Properties</div>
+            </div>
 
-					<!-- START ISO SECTION -->
-					<div class="iso-section">
-						<ul class="filter-wrapper clearfix">
-							
-						</ul>
-						<div class="iso-box-section">
-							<div class="iso-box-wrapper col4-iso-box">
-								<div class="iso-box html photoshop wordpress mobile col-md-4 col-sm-3 col-xs-12">
-									<div class="portfolio-thumb">
-										<img src="images/sentibot sc.jpg" class="fluid-img" alt="portfolio img">
-										<div class="portfolio-overlay">
-											<h3 class="portfolio-item-title">Stock Sentiment Analysis Website</h3>
-											<p>This project showcases strong technical leadership by adopting new technologies and enhancing skills. 
-												Using pre-trained Transformers models, sentiment accuracy reached 90%. 
-												NewsAPI integration expanded coverage and improved sentiment analysis. 
-												Seamless Streamlit integration reduced onboarding time by 80% and boosted engagement by 60%. 
-												Additionally, an advanced NLP-based sentiment quantification algorithm provides data-driven insights for traders and portfolio managers.
-											</p>
-										</div>
-									</div>
-								</div>
-								<div class="iso-box html wordpress mobile col-md-4 col-sm-3 col-xs-12">
-									<div class="portfolio-thumb">
-										<img src="images/portfolio-img2.jpg" class="fluid-img" alt="portfolio img">
-										<div class="portfolio-overlay">
-											<h3 class="portfolio-item-title">WEb podcast summarizer</h3>
-											<p>(In progress) This Python program summarizes podcasts using a combination of YouTube transcripts, the OpenAI Whisper model, and the GPT-3 Chat model. 
-												It has a frontend built with NextJS, allowing users to input the URL of the podcast and see the summary. 
-												The program makes it easy for users to quickly get a summary of a podcast, saving time and staying informed about the content. 
-												The frontend allows users to input the URL of the podcast and displays the summary once it has been generated.</p>
-										</div>
-									</div>
-								</div>
-								<div class="iso-box html wordpress mobile col-md-4 col-sm-3 col-xs-12">
-									<div class="portfolio-thumb">
-										<img src="images/housing price precictor.jpg" class="fluid-img" alt="portfolio img">
-										<div class="portfolio-overlay">
-											<h3 class="portfolio-item-title">House price predictor</h3>
-											<p>Implemented a house price prediction model using Random Forest algorithms to accurately forecast real estate prices.
-												Utilized Python and various data analysis libraries such as pandas and scikit-learn to preprocess and clean the data.
-												Trained and optimized the model using a combination of techniques including cross-validation and feature selection.
-												Achieved a high level of accuracy in predicting house prices and demonstrated the model's performance through thorough evaluation metrics..
+            <!-- Blue Screen of Death Easter Egg -->
+            <div id="bsod" class="hidden">
+                <div id="bsod-content">
+                    <h1>Windows</h1>
+                    <p>A fatal exception 0E has occurred at 0028:C000BA67 in VXD VMM(01) + 00010E67. The current application will be terminated.</p>
+                    <p>* Press any key to terminate the current application.</p>
+                    <p>* Press CTRL+ALT+DEL to restart your computer. You will lose any unsaved information in all applications.</p>
+                    <div id="bsod-cursor">_</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Preload Windows 95 sounds -->
+    <audio id="startup-sound" preload="auto">
+        <source src="sounds/windows95-startup.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="error-sound" preload="auto">
+        <source src="sounds/windows95-error.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="click-sound" preload="auto">
+        <source src="sounds/windows95-click.mp3" type="audio/mpeg">
+    </audio>
 
-
-											</p>
-										</div>
-									</div>
-								</div>
-								<div class="iso-box html wordpress mobile col-md-4 col-sm-3 col-xs-12">
-									<div class="portfolio-thumb">
-										<img src="images/franklin 3d image.jpg" class="fluid-img" alt="portfolio img">
-										<div class="portfolio-overlay">
-											<h3 class="portfolio-item-title">15 lb Battle-Bot</h3>
-											<p>While working on my high school's robotics team, I had the opportunity to design the weapons 
-												and electronics systems for our robot. To complete this task, I became proficient in RobotC, a programming
-												 language, and Autodesk Inventor, a 3D design software. I gained these skills through a combination of 
-												 online resources, hands-on practice, and experimentation. The bot was a success, and I gained valuable 
-												 skills in robotics and engineering.</p>
-										</div>
-									</div>
-								</div>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- END PORTFOLIO -->
-
-	<!-- START RESUME -->
-	<section id="resume" class="tm-padding-top-bottom-100">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6 col-sm-6">					
-					<h2 class="title">My <strong>Profile</strong></h2>
-					<p><span class="tm-info-label">Name</span> Alec Conti</p>
-					
-					<p><span class="tm-info-label">Email</span> johnalecconti@gmail.com</p>
-					
-					<!--<p><span class="tm-info-label">Website</span> <a href="#" class="tm-red-text">www.company.com</a></p>-->
-				</div>
-				
-				<div class="col-md-6 col-sm-6">
-					<h2 class="title"><strong>Some</strong> Skills</h2>
-					<!--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.</p>-->
-					<li><a href="https://drive.google.com/file/d/1HNMavcw6ayZ9VvCFmwJ52qTHj9HqYgyF/view?usp=sharing" target="_blank" class="smoothScroll">Resume</a></li>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- END RESUME -->
-
-	'''<!-- START ABOUT 
-	<section id="about" class="tm-about">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-offset-6 col-md-6 col-sm-offset-6 col-sm-7">
-					<div class="title">
-						<h2>This is <strong>me</strong></h2>
-						<h1 class="tm-red-text">Creative <strong>Director</strong></h1>
-					</div>
-					<p>This is free Bootstrap v3.3.4 mobile friendly layout from <a rel="nofollow" href="https://templatemo.com">templatemo</a>. Feel free to use it for your website. Credit goes to <a rel="nofollow" href="https://pixabay.com">Pixabay</a> for photos used in this template. Dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
-					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.</p>
-				</div>
-			</div>
-		</div>
-	</section>
-	END ABOUT -->'''
-
-	<!-- START SOCIAL -->
-	<section id="social" class="tm-social">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6 col-sm-4 wow rotateInUpLeft" data-wow-delay="0.3s">
-					<div class="media facebook">
-						<a href="https://www.linkedin.com/in/alecconti/" target="_blank" >
-							<div class="media-object pull-left">
-								<i class="fa fa-linkedin-square"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading tm-social-title">Connect with me on</h4>
-								
-								<h3>LinkedIn</h3>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="col-md-6 col-sm-4 wow rotateInUpLeft" data-wow-delay="0.6s">
-					<div class="media twitter">
-						<a href="https://github.com/alecconti" target="_blank" >
-							<div class="media-object pull-left">
-								<i class="fa fa-github-square"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading tm-social-title">Follow Me on</h4>
-								<h3>Github</h3>
-							</div>
-						</a>
-					</div>
-				</div>
-				
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- END SOCIAL -->
-
-	<!-- START CONTACT
-	<section id="contact" class="tm-contact">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">					
-					<h2 class="title">Contact Me </h2>
-					<hr>					
-				</div>
-				<div class="col-md-1 col-sm-1"></div>
-				<div class="col-md-10 col-sm-10">
-					<form action="#" method="post">
-						<div class="col-md-6 col-sm-6">
-							<input class="form-control" type="text" placeholder="Your Name">
-						</div>
-						<div class="col-md-6 col-sm-6">
-							<input class="form-control" type="email" placeholder="Your Email">
-						</div>
-						<div class="col-md-12 col-sm-12">
-							<input class="form-control" type="text" placeholder="Your Subject">
-							<textarea class="form-control" placeholder="Your Message" rows="6"></textarea>
-						</div>
-						<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8">
-							<input class="form-control" type="submit" value="Send">
-						</div>
-					</form>
-				</div>
-				<div class="col-md-1 col-sm-1"></div>
-				<div class="col-md-12 col-sm-12">
-					<p>Copyright &copy; 2018 Ultra Profile
-                    . design: <a rel="nofollow noopener" href="https://templatemo.com">template mo</a></p>
-				</div>
-			</div>
-		</div>
-	</section>
-	END CONTACT -->
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/smoothscroll.js"></script>
-	<script src="js/jquery.nav.js"></script>
-	<script src="js/isotope.js"></script>
-	<script src="js/imagesloaded.min.js"></script>
-	<script src="js/custom.js"></script>
+    <script src="js/win95.js"></script>
+    <script src="js/windows.js"></script>
+    <script src="js/minesweeper.js"></script>
+    <script src="js/content.js"></script>
 </body>
 </html>
