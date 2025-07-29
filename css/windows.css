@@ -1,4 +1,43 @@
 /* windows.css - Styling for Windows 95 window system */
+/* Brick Breaker styles to add to windows.css */
+
+/* Brick Breaker window */
+.brickbreaker-content {
+  background-color: var(--win95-grey);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brickbreaker-controls {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--win95-grey);
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.game-status {
+  display: flex;
+  gap: 15px;
+}
+
+#brickbreaker-canvas {
+  background-color: var(--win95-white);
+  border: var(--window-border) solid;
+  border-color: var(--win95-dark-grey) var(--win95-white) var(--win95-white) var(--win95-dark-grey);
+}
+
+.game-message {
+  margin-top: 10px;
+  font-weight: bold;
+  height: 20px;
+  text-align: center;
+  width: 100%;
+}
 
 /* Window container */
 .window {
