@@ -73,7 +73,14 @@ const windowTemplates = {
         emoji: '🗑️',
         width: 400,
         height: 300
-    }
+    },
+    'brickbreaker': {
+    title: 'Brick Breaker',
+    icon: '🧱',
+    emoji: true,
+    width: 420,
+    height: 400
+}
 };
 
 // Initialize window system
@@ -327,6 +334,10 @@ function closeWindow(windowId) {
         if (taskbarItem) {
             taskbarItem.remove();
         }
+        // Add this inside the closeWindow function, before removing the window from DOM
+        if (originalId === 'brickbreaker' && typeof cleanupBrickBreaker === 'function') {
+            cleanupBrickBreaker();
+        }
         
         // Remove window from DOM
         window.remove();
@@ -345,35 +356,30 @@ function closeWindow(windowId) {
 // This function needs to be updated in windows.js to handle emoji icons
 
 // Add taskbar item for a window
+// Update the addTaskbarItem function in windows.js to handle emoji icons
+
+// Find this function in windows.js and replace it with this version
 function addTaskbarItem(windowId, fullWindowId) {
     const activeWindows = document.getElementById('active-windows');
     const config = windowTemplates[windowId] || {};
-    
-    // Map windowId to appropriate emoji
-    const emojiMap = {
-        'internships': '💼',
-        'projects': '🚀',
-        'photos': '📸',
-        'search': '🌎',
-        'control-panel': '🛠️',
-        'about-me': '📝',
-        'resume': '📄',
-        'minesweeper': '💣',
-        'recycle-bin': '🗑️'
-    };
-    
-    const emoji = emojiMap[windowId] || '📂';
     
     // Create taskbar item
     const taskbarItem = document.createElement('div');
     taskbarItem.className = 'taskbar-item';
     taskbarItem.setAttribute('data-window', windowId);
     
-    // Add icon and title with emoji
-    taskbarItem.innerHTML = `
-        <div class="item-emoji">${emoji}</div>
-        <span>${config.title || windowId}</span>
-    `;
+    // Add icon and title (now supporting emojis)
+    if (config.emoji) {
+        taskbarItem.innerHTML = `
+            <span class="emoji-icon-small">${config.icon}</span>
+            <span>${config.title || windowId}</span>
+        `;
+    } else {
+        taskbarItem.innerHTML = `
+            <img src="img/icons/${config.icon || 'folder.png'}" alt="${config.title || windowId}">
+            <span>${config.title || windowId}</span>
+        `;
+    }
     
     // Add click handler to toggle window
     taskbarItem.addEventListener('click', () => {
@@ -393,53 +399,6 @@ function addTaskbarItem(windowId, fullWindowId) {
     // Add to taskbar
     activeWindows.appendChild(taskbarItem);
 }
-// Enable window dragging
-function enableDragging(window, handle) {
-    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    
-    handle.addEventListener('mousedown', startDragging);
-    
-    function startDragging(e) {
-        e.preventDefault();
-        
-        // Set active window
-        setActiveWindow(window.id);
-        
-        // Don't drag if maximized
-        if (window.classList.contains('maximized')) {
-            return;
-        }
-        
-        // Get cursor position
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        
-        // Add event listeners
-        document.addEventListener('mousemove', dragWindow);
-        document.addEventListener('mouseup', stopDragging);
-    }
-    
-    function dragWindow(e) {
-        e.preventDefault();
-        
-        // Calculate new cursor position
-        pos1 = pos3 - e.clientX;
-        pos2 = pos4 - e.clientY;
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        
-        // Set window position
-        window.style.top = (window.offsetTop - pos2) + 'px';
-        window.style.left = (window.offsetLeft - pos1) + 'px';
-    }
-    
-    function stopDragging() {
-        // Remove event listeners
-        document.removeEventListener('mousemove', dragWindow);
-        document.removeEventListener('mouseup', stopDragging);
-    }
-}
-
 // Load window contents dynamically
 function loadWindowContents() {
     // Content will be loaded from content.js
@@ -450,6 +409,9 @@ function initializeWindowContent(windowId, windowElement) {
     switch (windowId) {
         case 'minesweeper':
             initializeMinesweeper(windowElement);
+            break;
+        case 'brickbreaker':
+            initializeBrickBreaker(windowElement);
             break;
         case 'internships':
             initializeInternshipsWindow(windowElement);
