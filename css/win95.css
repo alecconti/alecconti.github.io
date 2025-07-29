@@ -1,44 +1,4 @@
 /* win95.css - Base styling for Windows 95 theme */
-/* Add these styles to win95.css for emoji icons */
-
-.emoji-icon {
-  font-size: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: var(--icon-size);
-  height: var(--icon-size);
-  margin-bottom: 5px;
-}
-
-.emoji-icon-small {
-  font-size: 14px;
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  margin-right: 5px;
-  text-align: center;
-}
-
-/* Update the desktop-icon style to better accommodate emojis */
-.desktop-icon {
-  width: 80px;
-  height: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 5px;
-  cursor: pointer;
-}
-
-/* Add emoji support to the taskbar */
-.taskbar-item .emoji-icon-small {
-  width: 16px;
-  height: 16px;
-  margin-right: 4px;
-  text-align: center;
-}
 
 /* Import MS Sans Serif font */
 @font-face {
