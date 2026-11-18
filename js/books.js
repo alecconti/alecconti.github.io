@@ -18,7 +18,8 @@ export function esc(value) {
 }
 
 const b = (html, opts = {}) => ({ html, ...opts });
-const chapter = (kicker, title) => b(`<p class="kicker">${esc(kicker)}</p><h2>${esc(title)}</h2>`, { breakBefore: true });
+const chapter = (title, meta) =>
+  b(`<h2>${esc(title)}</h2>${meta ? `<p class="meta">${esc(meta)}</p>` : ''}`, { breakBefore: true });
 const list = (items) => items.map((item) => b(`<p class="item">${item}</p>`));
 const tags = (items) => b(`<p class="tags">${items.map((t) => `<span>${esc(t)}</span>`).join('')}</p>`);
 
@@ -47,16 +48,16 @@ const about = {
   blocks: () => [
     b(`<h2>Hello.</h2><p class="lede">I’m Alec Conti. I work with data, machine learning and finance, and I keep a running library of what I learn.</p>`),
     b(`<p>This shelf is that library. The books on the left are my work: internships and projects. The notebooks and the reading shelf are pulled live from <a href="${LEXICON_APP}" target="_blank" rel="noopener">Lexicon</a>, the app I built to learn things properly, so they show what I’m actually reading, quoting and studying this week.</p>`),
-    chapter('Education', 'Pennsylvania State University'),
+    chapter('Pennsylvania State University'),
     b(`<p class="meta">B.S. Computer Science · Minor in Mathematics · University Park, PA</p>`),
     b(`<h3>Coursework</h3>`),
     ...list(['Mathematics of Finance', 'Mathematics of Machine Learning', 'Statistical Inference', 'Data Structures &amp; Algorithms', 'Probability Theory', 'Game Theory']),
-    chapter('Toolkit', 'Skills'),
+    chapter('Skills'),
     b(`<h3>Languages</h3>`), tags(['Python', 'Java', 'SQL', 'C']),
     b(`<h3>Libraries</h3>`), tags(['Pandas', 'NumPy', 'scikit-learn', 'Matplotlib']),
     b(`<h3>Frameworks &amp; tools</h3>`), tags(['Databricks', 'TensorFlow', 'Power BI', 'Streamlit']),
     b(`<h3>Data engineering &amp; cloud</h3>`), tags(['Apache Spark', 'Azure', 'Docker']),
-    chapter('Correspondence', 'Get in touch'),
+    chapter('Get in touch'),
     b(`<p class="item"><a href="mailto:johnalecconti@gmail.com">johnalecconti@gmail.com</a></p>`),
     b(`<p class="item"><a href="https://linkedin.com/in/alecconti" target="_blank" rel="noopener">linkedin.com/in/alecconti</a></p>`),
     b(`<p class="item"><a href="https://github.com/alecconti" target="_blank" rel="noopener">github.com/alecconti</a></p>`),
@@ -76,10 +77,10 @@ function internship({ id, company, role, years, period, location, blurb, did, to
     thickness,
     spec: { Binding: theme.binding, Format: '6 × 9 in, sewn', Theme: theme.theme, Period: period, Location: location },
     blocks: () => [
-      b(`<p class="kicker">${esc(period)} · ${esc(location)}</p><h2>${esc(role)}</h2><p class="lede">${esc(blurb)}</p>`),
-      chapter('Chapter one', 'What I did'),
+      b(`<h2>${esc(role)}</h2><p class="meta">${esc(period)} · ${esc(location)}</p><p class="lede">${esc(blurb)}</p>`),
+      chapter('What I did'),
       ...list(did),
-      chapter('Appendix', 'Tools'),
+      chapter('Tools'),
       tags(tools),
     ],
   };
@@ -139,7 +140,7 @@ const pnc = {
   thickness: 0.36,
   spec: { Binding: 'Slate cloth, copper foil', Format: '6 × 9 in, sewn', Theme: 'Banking, data and retention', Status: 'In preparation' },
   blocks: () => [
-    b(`<p class="kicker">Forthcoming</p><h2>This volume is still at the printer.</h2><p class="lede">Notes from my time at PNC are being written up and will be bound here soon.</p>`),
+    b(`<h2>This volume is still at the printer.</h2><p class="lede">Notes from my time at PNC are being written up and will be bound here soon.</p>`),
   ],
 };
 
@@ -156,25 +157,25 @@ const projects = {
   spec: { Binding: 'Forest cloth, gold foil', Format: '6.5 × 9.5 in, sewn', Theme: 'Machine learning, markets, tools for thinking' },
   blocks: () => [
     b(`<h2>Projects</h2><p class="lede">Things I built to understand something better.</p>`),
-    chapter('2026', 'Lexicon'),
+    chapter('Lexicon', '2026'),
     b(`<p>A personal knowledge base for learning by recall. Save an idea, a quote or a word, and review it by explaining it back in a few seconds a day. Ideas connect on a map, and a spoken capture files a book quote in one tap.</p>`),
     b(`<p>It’s the source of the notebooks on this shelf. <a href="${LEXICON_APP}" target="_blank" rel="noopener">Try the demo</a>.</p>`),
     tags(['Next.js', 'TypeScript', 'Turso', 'Gemini', 'Vercel']),
-    chapter('Aug 2024', 'Unsupervised stock trading strategy'),
+    chapter('Unsupervised stock trading strategy', 'August 2024'),
     b(`<p>A machine learning strategy that clusters S&amp;P 500 stocks with K-Means and builds portfolios for the maximum Sharpe ratio.</p>`),
     ...list([
       'Feature engineering on S&amp;P 500 prices: technical indicators and Fama-French factor exposures.',
       'Efficient Frontier optimization combining factor exposures with the clusters.',
     ]),
     tags(['Python', 'scikit-learn', 'Pandas', 'NumPy', 'PyPortfolioOpt', 'Matplotlib']),
-    chapter('Jul 2023', 'Stock sentiment analysis site'),
+    chapter('Stock sentiment analysis site', 'July 2023'),
     b(`<p>An end-to-end sentiment site built in the Federated Hermes Intern Hackathon, where it took first place.</p>`),
     ...list([
       'Fine-tuned pre-trained language models to 90% sentiment accuracy.',
       'Real-time news through NewsAPI and a Streamlit interface.',
     ]),
     tags(['Python', 'NLP', 'Streamlit', 'NewsAPI']),
-    chapter('2025 – 2026', 'This bookshelf'),
+    chapter('This bookshelf', '2026'),
     b(`<p>The site you’re reading. A Three.js shelf with cloth covers drawn in code, page turns, and notebooks fed live from Lexicon. It replaced a Windows 95 desktop that had Minesweeper.</p>`),
     tags(['Three.js', 'JavaScript', 'CSS']),
   ],
@@ -231,7 +232,7 @@ export function liveBooks(feed) {
       b(`<h2>Field Notes</h2><p class="lede">The newest ideas I’ve saved in Lexicon, in my own words. Each one is reviewed by explaining it back. The dots show how well it has stuck.</p>`),
       ...(learning.length ? [] : [empty(feed)]),
       ...[...byTopic.entries()].flatMap(([topic, ideas]) => [
-        chapter('Topic', topic),
+        chapter(topic),
         ...ideas.map((idea) =>
           b(`<div class="note"><h4>${esc(idea.title)}</h4><p>${esc(idea.note)}</p><p class="note-meta">${dots(idea.box)}${idea.source ? ` · from <em>${esc(idea.source.title)}</em>` : ''} · ${fmtDate(idea.addedAt)}</p></div>`),
         ),
@@ -310,7 +311,7 @@ export function liveBooks(feed) {
         'Last note': fmtDate(book.lastAddedAt),
       },
       blocks: () => [
-        b(`<p class="kicker">${book.status === 'reading' ? 'Reading now' : 'Finished'}</p><h2>${esc(book.title)}</h2>${book.author ? `<p class="lede">${esc(book.author)}</p>` : ''}`),
+        b(`<h2>${esc(book.title)}</h2>${book.author ? `<p class="lede">${esc(book.author)}</p>` : ''}<p class="meta">${book.status === 'reading' ? 'Reading now' : 'Finished'}</p>`),
         b(`<p class="meta">My notes from this book, as saved in Lexicon.</p>`),
         ...(book.highlights.length ? [] : [b(`<p class="meta">No notes yet.</p>`)]),
         ...book.highlights.map((n) =>

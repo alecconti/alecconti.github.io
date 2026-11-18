@@ -195,7 +195,7 @@ function specPage(book) {
     .map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`)
     .join('');
   return `
-    <p class="kicker">Specifications</p>
+    <h2 class="spec-head">This edition</h2>
     <dl class="spec-list">${rows}</dl>
     <p class="imprint">${book.live ? 'Printed live from Lexicon each time the book is opened.' : 'From the shelf of J. Alec Conti.'}</p>`;
 }
@@ -205,7 +205,7 @@ function titlePage(book) {
     <div class="title-block">
       <h1>${esc(book.title)}</h1>
       ${book.subtitle ? `<p class="subtitle">${esc(book.subtitle)}</p>` : ''}
-      <p class="by">${esc(book.byline ? `${book.byline}` : 'J. Alec Conti')}</p>
+      ${book.title === 'J. Alec Conti' ? '' : `<p class="by">${esc(book.byline || 'J. Alec Conti')}</p>`}
     </div>
     <p class="press">${book.byline ? 'Notes by J. Alec Conti' : 'alecconti.github.io'}</p>`;
 }

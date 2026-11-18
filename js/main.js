@@ -338,13 +338,13 @@ async function main() {
     backdrop.position.x = camX;
     backdrop.visible = true;
     const start = { x: s.group.position.x, y: s.group.position.y, z: s.group.position.z, ry: s.group.rotation.y };
-    await tween(380, (k) => pose(s.group, start, pulled, k));
-    await tween(760, (k) => {
+    await tween(320, (k) => pose(s.group, start, pulled, k));
+    await tween(640, (k) => {
       pose(s.group, pulled, { ...target, rx: 0 }, k);
       s.group.rotation.x = Math.sin(k * Math.PI) * -0.12;
       backdrop.material.opacity = 0.9 * k;
     });
-    await tween(700, (k) => {
+    await tween(600, (k) => {
       s.hinge.rotation.y = -Math.PI * k;
     });
     s.group.updateMatrixWorld(true);
@@ -359,17 +359,17 @@ async function main() {
     reader.close();
     document.body.classList.remove('reading');
     history.replaceState(null, '', location.pathname + location.search);
-    await tween(520, (k) => {
+    await tween(380, (k) => {
       s.hinge.rotation.y = -Math.PI * (1 - k);
     });
     const from = { x: s.group.position.x, y: s.group.position.y, z: s.group.position.z, ry: s.group.rotation.y };
     const pulled = { x: s.home.x, y: s.home.y + 0.3, z: s.home.z + 0.9, ry: s.home.ry };
-    await tween(700, (k) => {
+    await tween(480, (k) => {
       pose(s.group, from, pulled, k);
       backdrop.material.opacity = 0.9 * (1 - k);
     });
     backdrop.visible = false;
-    await tween(360, (k) => pose(s.group, pulled, s.home, k));
+    await tween(240, (k) => pose(s.group, pulled, s.home, k));
     s.lift = 0;
     current = null;
     busy = false;
