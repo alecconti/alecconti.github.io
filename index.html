@@ -1,187 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alec Conti - Windows 95 Portfolio</title>
-    <link rel="stylesheet" href="css/win95.css">
-    <link rel="stylesheet" href="css/windows.css">
-    <link rel="stylesheet" href="css/custom.css">
-    <link rel="icon" href="img/icons/computer.ico" type="image/x-icon">
-    <meta name="description" content="J. Alec Conti's Windows 95-themed personal portfolio website showcasing projects, internships, and more.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>J. Alec Conti · Bookshelf</title>
+  <meta name="description" content="J. Alec Conti’s bookshelf: internships and projects bound as books, plus notebooks of what he is learning, pulled live from Lexicon.">
+  <meta name="theme-color" content="#efebe3">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+  <link rel="stylesheet" href="css/shelf.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='6' y='4' width='6' height='24' rx='1' fill='%2322379a'/%3E%3Crect x='13' y='7' width='5' height='21' rx='1' fill='%23b4532a'/%3E%3Crect x='19' y='5' width='7' height='23' rx='1' fill='%232f4a3a'/%3E%3C/svg%3E">
 </head>
 <body>
-    <div id="win95-container">
-        <div id="win95-app">
-            <!-- Desktop container -->
-            <div id="desktop">
-                <!-- Desktop icons with emojis -->
-                <div class="desktop-icon" data-window="internships">
-                    <div class="icon-emoji">💼</div>
-                    <span>Internships</span>
-                </div>
-                <div class="desktop-icon" data-window="projects">
-                    <div class="icon-emoji">🚀</div>
-                    <span>Projects</span>
-                </div>
-                <div class="desktop-icon" data-window="photos">
-                    <div class="icon-emoji">📸</div>
-                    <span>Photos</span>
-                </div>
-                <div class="desktop-icon" data-window="search">
-                    <div class="icon-emoji">🌎</div>
-                    <span>Web Search</span>
-                </div>
-                <div class="desktop-icon" data-window="control-panel">
-                    <div class="icon-emoji">🛠️</div>
-                    <span>Control Panel</span>
-                </div>
-                <div class="desktop-icon" data-window="about-me">
-                    <div class="icon-emoji">📝</div>
-                    <span>About Me</span>
-                </div>
-                <div class="desktop-icon" data-window="resume">
-                    <div class="icon-emoji">📄</div>
-                    <span>Resume</span>
-                </div>
-                <div class="desktop-icon" data-window="minesweeper">
-                    <div class="icon-emoji">💣</div>
-                    <span>Minesweeper</span>
-                </div>
-                <div class="desktop-icon" id="recycle-bin" data-window="recycle-bin">
-                    <div class="icon-emoji">🗑️</div>
-                    <span>Recycle Bin</span>
-                </div>
-            </div>
+  <header class="masthead">
+    <a class="name" href="#" aria-label="J. Alec Conti, home">J. Alec Conti</a>
+    <nav class="links">
+      <a href="mailto:johnalecconti@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/alecconti" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/alecconti" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
 
-            <!-- Window templates - will be cloned and shown when icons are clicked -->
-            <div id="window-templates" style="display: none;">
-                <!-- About Me Window -->
-                <div id="about-me-window" class="window">
-                    <div class="window-header">
-                        <div class="window-title">About Me - Notepad</div>
-                        <div class="window-controls">
-                            <button class="minimize-button">_</button>
-                            <button class="maximize-button">□</button>
-                            <button class="close-button">✕</button>
-                        </div>
-                    </div>
-                    <div class="window-menu-bar">
-                        <ul>
-                            <li>File</li>
-                            <li>Edit</li>
-                            <li>View</li>
-                            <li>Help</li>
-                        </ul>
-                    </div>
-                    <div class="window-content notepad-content">
-                        <div class="notepad-text">
-                            <p>Hello World! I'm J. Alec Conti,</p>
-                            <p>Welcome to my Windows 95-themed portfolio website! I'm a passionate developer with interests in Data Analytics, Machine Learning, and Finance. This interactive portfolio showcases my work, experience, and projects in a nostalgic Windows 95 interface.</p>
-                            <p>Feel free to explore the desktop and open different folders to learn more about me!</p>
-                            <p>Current status: Expected to graduate in May 2025, looking for full-time opportunities in Data Analytics, ML Engineering, and Quantitative Finance.</p>
-                            <p>Location: University Park, PA</p>
-                            <p>Contact: johnalecconti@gmail.com | </p>
-                            <p>Links: <a href="https://alecconti.github.io" target="_blank">alecconti.github.io</a> | <a href="https://linkedin.com/in/alecconti" target="_blank">linkedin.com/in/alecconti</a></p>
-                        </div>
-                    </div>
-                </div>
+  <main>
+    <h1 class="sr-only">J. Alec Conti’s bookshelf</h1>
+    <section class="intro">
+      <p>Work, bound as books. Notebooks of what I’m learning, printed live from <a href="https://lexicon-dusky-kappa.vercel.app" target="_blank" rel="noopener">Lexicon</a>.</p>
+      <p id="live-status" class="status" role="status">Setting the shelf…</p>
+    </section>
 
-                <!-- Other windows will be defined similarly in the JavaScript code -->
-            </div>
-
-            <!-- Taskbar -->
-            <div id="taskbar">
-                <button id="start-button">
-                    <div class="start-emoji">🪟</div>
-                    Start
-                </button>
-                <div id="active-windows">
-                    <!-- Active windows will be shown here -->
-                </div>
-                <div id="system-tray">
-                    <div id="clock">9:41 AM</div>
-                </div>
-            </div>
-
-            <!-- Start Menu -->
-            <div id="start-menu" class="hidden">
-                <div id="start-header">
-                    <div id="start-banner">
-                        <div class="win-logo-large">🪟</div>
-                        <span>Windows 95</span>
-                    </div>
-                </div>
-                <div id="start-menu-items">
-                    <div class="start-item" data-window="about-me">
-                        <div class="start-emoji">📝</div>
-                        <span>About Me</span>
-                    </div>
-                    <div class="start-item" data-window="internships">
-                        <div class="start-emoji">💼</div>
-                        <span>Internships</span>
-                    </div>
-                    <div class="start-item" data-window="projects">
-                        <div class="start-emoji">🚀</div>
-                        <span>Projects</span>
-                    </div>
-                    <div class="start-item" data-window="resume">
-                        <div class="start-emoji">📄</div>
-                        <span>Resume</span>
-                    </div>
-                    <div class="separator"></div>
-                    <div class="start-item" data-window="minesweeper">
-                        <div class="start-emoji">💣</div>
-                        <span>Minesweeper</span>
-                    </div>
-                    <div class="start-item" id="blue-screen-trigger">
-                        <div class="start-emoji">⚠️</div>
-                        <span>Blue Screen</span>
-                    </div>
-                    <div class="separator"></div>
-                    <div class="start-item" id="shutdown">
-                        <div class="start-emoji">🔌</div>
-                        <span>Shut Down...</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right-click context menu -->
-            <div id="context-menu" class="hidden">
-                <div class="context-item" id="ctx-refresh">Refresh</div>
-                <div class="context-item" id="ctx-create">New</div>
-                <div class="separator"></div>
-                <div class="context-item" id="ctx-wallpaper">Change Wallpaper</div>
-                <div class="context-item" id="ctx-properties">Properties</div>
-            </div>
-
-            <!-- Blue Screen of Death Easter Egg -->
-            <div id="bsod" class="hidden">
-                <div id="bsod-content">
-                    <h1>Windows</h1>
-                    <p>A fatal exception 0E has occurred at 0028:C000BA67 in VXD VMM(01) + 00010E67. The current application will be terminated.</p>
-                    <p>* Press any key to terminate the current application.</p>
-                    <p>* Press CTRL+ALT+DEL to restart your computer. You will lose any unsaved information in all applications.</p>
-                    <div id="bsod-cursor">_</div>
-                </div>
-            </div>
-        </div>
+    <div id="stage" aria-hidden="true">
+      <div id="labels"></div>
     </div>
 
-    <!-- Preload Windows 95 sounds -->
-    <audio id="startup-sound" preload="auto">
-        <source src="sounds/windows95-startup.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="error-sound" preload="auto">
-        <source src="sounds/windows95-error.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="click-sound" preload="auto">
-        <source src="sounds/windows95-click.mp3" type="audio/mpeg">
-    </audio>
+    <nav id="book-list" aria-label="Books on the shelf"></nav>
 
-    <script src="js/win95.js"></script>
-    <script src="js/windows.js"></script>
-    <script src="js/minesweeper.js"></script>
-    <script src="js/content.js"></script>
+    <div class="shelf-controls">
+      <button id="scroll-left" type="button" aria-label="Scroll the shelf left">←</button>
+      <p class="hint">Scroll or drag to browse · Click a book to read it</p>
+      <button id="scroll-right" type="button" aria-label="Scroll the shelf right">→</button>
+    </div>
+    <p id="caption" aria-hidden="true"></p>
+  </main>
+
+  <div id="reader" hidden role="dialog" aria-label="Open book">
+    <div class="spread">
+      <div class="page left"></div>
+      <div class="page right"></div>
+      <div class="leaf" hidden><div class="face front page"></div><div class="face back page"></div></div>
+      <div class="gutter"></div>
+    </div>
+    <div class="reader-bar">
+      <button class="prev" type="button" aria-label="Previous page">←</button>
+      <span class="counter" aria-live="polite"></span>
+      <button class="next" type="button" aria-label="Next page">→</button>
+    </div>
+    <button class="close" type="button">Return to shelf <span aria-hidden="true">✕</span></button>
+    <div class="measure page" aria-hidden="true"><div class="body text"></div></div>
+  </div>
+
+  <noscript><p class="noscript">This shelf needs JavaScript. Reach me at johnalecconti@gmail.com or linkedin.com/in/alecconti.</p></noscript>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
